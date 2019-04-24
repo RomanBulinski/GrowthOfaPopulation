@@ -1,24 +1,24 @@
-# GrowthOfaPopulation
-SImple code wars kata
+In a small town the population is p0 = 1000 at the beginning of a year. The population regularly increases by 2 percent per year and moreover 50 new inhabitants per year come to live in the town. How many years does the town need to see its population greater or equal to p = 1200 inhabitants?
 
+At the end of the first year there will be: 
+1000 + 1000 * 0.02 + 50 => 1070 inhabitants
 
-My friend John likes to go to the cinema. He can choose between system A and system B.
+At the end of the 2nd year there will be: 
+1070 + 1070 * 0.02 + 50 => 1141 inhabitants (number of inhabitants is an integer)
 
-System A : buy a ticket (15 dollars) every time
-System B : buy a card (500 dollars) and every time 
-    buy a ticket the price of which is 0.90 times the price he paid for the previous one.
-#Example: If John goes to the cinema 3 times:
+At the end of the 3rd year there will be:
+1141 + 1141 * 0.02 + 50 => 1213
 
-System A : 15 * 3 = 45
-System B : 500 + 15 * 0.90 + (15 * 0.90) * 0.90 + (15 * 0.90 * 0.90) * 0.90 ( = 536.5849999999999, no rounding for each ticket)
-John wants to know how many times he must go to the cinema so that the final result of System B, when rounded up to the next dollar, will be cheaper than System A.
+It will need 3 entire years.
+More generally given parameters:
 
-The function movie has 3 parameters: card (price of the card), ticket (normal price of a ticket), perc (fraction of what he paid for the previous ticket) and returns the first n such that
+p0, percent, aug (inhabitants coming or leaving each year), p (population to surpass)
 
-ceil(price of System B) < price of System A.
-More examples:
+the function nb_year should return n number of entire years needed to get a population greater or equal to p.
 
-movie(500, 15, 0.9) should return 43 
-    (with card the total price is 634, with tickets 645)
-movie(100, 10, 0.95) should return 24 
-    (with card the total price is 235, with tickets 240)
+aug is an integer, percent a positive or null number, p0 and p are positive integers (> 0)
+
+Examples:
+nb_year(1500, 5, 100, 5000) -> 15
+nb_year(1500000, 2.5, 10000, 2000000) -> 10
+Note: Don't forget to convert the percent parameter as a percentage in the body of your function: if the parameter percent is 2 you have to convert it to 0.02
