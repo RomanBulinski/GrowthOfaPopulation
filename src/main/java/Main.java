@@ -7,7 +7,7 @@ public class Main {
 
         double start =  p0;
         int counter =0;
-        while( start <=  p ){
+        while( start < p ){
             start =  start + (start*(percent/100)) + aug;
             counter++;
             System.out.println(start);
